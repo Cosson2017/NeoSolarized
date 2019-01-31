@@ -150,6 +150,8 @@ let colors_name = "NeoSolarized"
     let s:gui_blue        = "#268bd2"
     let s:gui_cyan        = "#2aa198"
     let s:gui_green       = "#719e07" "experimental
+	"let s:gui_gray		  = '#2E2E2E'
+	let s:gui_gray		  = '#1A1A1A'
     "let s:green       = "#859900" "original
 
     let s:term_mode       = "cterm"
@@ -283,7 +285,7 @@ endif
 
 " Highlighting primitives"{{{
 " ---------------------------------------------------------------------
-
+exe "let s:bg_gray 		= ' " 	. 	"guibg=".s:gui_gray		.	" ctermbg=".s:term_none		 .	 "'"
 exe "let s:bg_none      = ' "   .   "guibg=".s:gui_none     .   " ctermbg=".s:term_none      .   "'"
 exe "let s:bg_back      = ' "   .   "guibg=".s:gui_back     .   " ctermbg=".s:term_back      .   "'"
 exe "let s:bg_base03    = ' "   .   "guibg=".s:gui_base03   .   " ctermbg=".s:term_base03    .   "'"
@@ -470,7 +472,8 @@ exe "hi! IncSearch"      .s:fmt_stnd   .s:fg_orange .s:bg_none
 exe "hi! Search"         .s:fmt_revr   .s:fg_yellow .s:bg_none
 exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
-exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base02
+"exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base02
+exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_gray
 exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
 if (g:neosolarized_vertSplitBgTrans == 1)
     exe "hi! VertSplit"  .s:fmt_none   .s:fg_base00 .s:bg_none
