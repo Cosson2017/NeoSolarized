@@ -150,7 +150,6 @@ let colors_name = "NeoSolarized"
     let s:gui_blue        = "#268bd2"
     let s:gui_cyan        = "#2aa198"
     let s:gui_green       = "#719e07" "experimental
-	"let s:gui_gray		  = '#2E2E2E'
 	let s:gui_gray		  = '#1A1A1A'
     "let s:green       = "#859900" "original
 
@@ -189,11 +188,12 @@ let colors_name = "NeoSolarized"
 " Background value based on termtrans setting "{{{
 " ---------------------------------------------------------------------
 if (has("gui_running") || g:neosolarized_termtrans == 0)
-    let s:gui_back        = s:gui_base03
-    let s:term_back        = s:term_base03
+    let s:gui_back     	= s:gui_base03
+    let s:term_back    	= s:term_base03
+	let s:gui_gray 		= "NONE"
 else
-    let s:gui_back        = "NONE"
-    let s:term_back        = "NONE"
+    let s:gui_back     	= "NONE"
+    let s:term_back    	= "NONE"
 endif
 "}}}
 
@@ -285,7 +285,6 @@ endif
 
 " Highlighting primitives"{{{
 " ---------------------------------------------------------------------
-exe "let s:bg_gray 		= ' " 	. 	"guibg=".s:gui_gray		.	" ctermbg=".s:term_none		 .	 "'"
 exe "let s:bg_none      = ' "   .   "guibg=".s:gui_none     .   " ctermbg=".s:term_none      .   "'"
 exe "let s:bg_back      = ' "   .   "guibg=".s:gui_back     .   " ctermbg=".s:term_back      .   "'"
 exe "let s:bg_base03    = ' "   .   "guibg=".s:gui_base03   .   " ctermbg=".s:term_base03    .   "'"
@@ -304,6 +303,7 @@ exe "let s:bg_magenta   = ' "   .   "guibg=".s:gui_magenta  .   " ctermbg=".s:te
 exe "let s:bg_violet    = ' "   .   "guibg=".s:gui_violet   .   " ctermbg=".s:term_violet    .   "'"
 exe "let s:bg_blue      = ' "   .   "guibg=".s:gui_blue     .   " ctermbg=".s:term_blue      .   "'"
 exe "let s:bg_cyan      = ' "   .   "guibg=".s:gui_cyan     .   " ctermbg=".s:term_cyan      .   "'"
+exe "let s:bg_gray 		= ' " 	. 	"guibg=".s:gui_gray		.	" ctermbg=".s:term_none		 .	 "'"
 
 exe "let s:fg_none      = ' "   .   "guifg=".s:gui_none     .   " ctermfg=".s:term_none      .   "'"
 exe "let s:fg_back      = ' "   .   "guifg=".s:gui_back     .   " ctermfg=".s:term_back      .   "'"
@@ -504,7 +504,8 @@ else " normal
     exe "hi! DiffText"       .s:fmt_bold   .s:fg_blue   .s:bg_base02 .s:sp_blue
 endif
 
-exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0  .s:bg_none
+"exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0  .s:bg_none
+exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0  .s:bg_gray
 exe "hi! Conceal"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! SpellBad"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_red
 exe "hi! SpellCap"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_violet
@@ -519,7 +520,8 @@ exe "hi! TabLineFill"    .s:fmt_none   .s:fg_base0  .s:bg_base02  .s:sp_base0
 exe "hi! TabLineSel"     .s:fmt_none   .s:fg_base01  .s:bg_base2  .s:sp_base0  .s:fmt_revr
 exe "hi! CursorColumn"   .s:fmt_none   .s:fg_none   .s:bg_base02
 exe "hi! CursorLine"     .s:fmt_uopt   .s:fg_none   .s:bg_base02  .s:sp_base1
-exe "hi! CursorLineNr"   .s:fmt_uopt   .s:fg_none   .s:bg_base02  .s:sp_base1
+"exe "hi! CursorLineNr"   .s:fmt_uopt   .s:fg_none   .s:bg_base02  .s:sp_base1
+exe "hi! CursorLineNr"   .s:fmt_uopt   .s:fg_none   .s:bg_gray  .s:sp_base1
 exe "hi! ColorColumn"    .s:fmt_none   .s:fg_none   .s:bg_base02
 exe "hi! Cursor"         .s:fmt_none   .s:fg_base03 .s:bg_base0
 hi! link lCursor Cursor
